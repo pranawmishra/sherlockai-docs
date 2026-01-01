@@ -1,0 +1,121 @@
+site_name: Sherlock AI Documentation
+site_url: https://docs.sherlockai.dev
+site_description: Performance monitoring and logging utilities for Python applications
+site_author: Pranaw Mishra
+repo_url: https://github.com/pranawmishra/sherlock-ai
+repo_name: sherlock-ai
+edit_uri: ""
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.keys
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pranawmishra/sherlock-ai
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/sherlock-ai/
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX  # Replace with your GA4 property
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quick Start: quick-start.md
+  - Features:
+      - features/index.md
+      - Performance Monitoring: features/performance-monitoring.md
+      - Memory Monitoring: features/memory-monitoring.md
+      - Resource Monitoring: features/resource-monitoring.md
+      - Error Analysis: features/error-analysis.md
+      - Code Analysis: features/code-analysis.md
+      - Auto-Instrumentation: features/auto-instrumentation.md
+  - Configuration:
+      - configuration/index.md
+      - Configuration Presets: configuration/presets.md
+      - Custom Configuration: configuration/custom-config.md
+      - JSON Logging: configuration/json-logging.md
+      - Log Management: configuration/log-management.md
+  - Examples:
+      - examples/index.md
+      - FastAPI Integration: examples/fastapi-integration.md
+      - Async Functions: examples/async-functions.md
+      - MongoDB Storage: examples/mongodb-storage.md
+      - API Client: examples/api-client.md
+      - Combined Monitoring: examples/combined-monitoring.md
+  - Advanced:
+      - Class-Based API: advanced/class-based-api.md
+      - Runtime Reconfiguration: advanced/runtime-reconfiguration.md
+      - Request Tracking: advanced/request-tracking.md
+      - Introspection: advanced/introspection.md
+  - Guides:
+      - FastAPI Setup: guides/fastapi-setup.md
+      - Production Deployment: guides/production-deployment.md
+      - Troubleshooting: guides/troubleshooting.md
+  - API Reference:
+      - api-reference/index.md
+      - Decorators: api-reference/decorators.md
+      - Classes: api-reference/classes.md
+      - Configuration: api-reference/configuration.md
+      - Utilities: api-reference/utilities.md
+  - Log Output Format: log-output-format.md

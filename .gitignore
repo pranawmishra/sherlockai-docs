@@ -1,3 +1,10 @@
+# MkDocs
+site/
+.cache/
+
+# UV
+.venv/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -205,3 +212,6 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+sherlockai.md
+main.py
