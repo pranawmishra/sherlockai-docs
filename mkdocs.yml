@@ -103,6 +103,9 @@ nav:
       - MongoDB Storage: examples/mongodb-storage.md
       - API Client: examples/api-client.md
       - Combined Monitoring: examples/combined-monitoring.md
+  - Providers:
+      - providers/index.md
+      - LLM Providers: providers/llm-providers.md
   - Advanced:
       - Class-Based API: advanced/class-based-api.md
       - Runtime Reconfiguration: advanced/runtime-reconfiguration.md
