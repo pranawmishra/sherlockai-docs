@@ -12,31 +12,31 @@
         <meta name="author" content="Pranaw Mishra">
       
       
-        <link rel="canonical" href="https://docs.sherlockai.dev/guides/troubleshooting/">
+        <link rel="canonical" href="https://docs.sherlockai.dev/providers/">
       
       
-        <link rel="prev" href="../production-deployment/">
+        <link rel="prev" href="../examples/combined-monitoring/">
       
       
-        <link rel="next" href="../../api-reference/">
+        <link rel="next" href="llm-providers/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Troubleshooting - Sherlock AI Documentation</title>
+        <title>Providers - Sherlock AI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#troubleshooting" class="md-skip">
+        <a href="#providers" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Sherlock AI Documentation" class="md-header__button md-logo" aria-label="Sherlock AI Documentation" data-md-component="logo">
+    <a href=".." title="Sherlock AI Documentation" class="md-header__button md-logo" aria-label="Sherlock AI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Troubleshooting
+              Providers
             
           </span>
         </div>
@@ -233,7 +233,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -254,7 +254,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../installation/" class="md-tabs__link">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../features/" class="md-tabs__link">
+        <a href="../features/" class="md-tabs__link">
           
   
   
@@ -298,7 +298,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../configuration/" class="md-tabs__link">
+        <a href="../configuration/" class="md-tabs__link">
           
   
   
@@ -320,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../examples/" class="md-tabs__link">
+        <a href="../examples/" class="md-tabs__link">
           
   
   
@@ -338,11 +338,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../providers/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -364,7 +366,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../advanced/class-based-api/" class="md-tabs__link">
+        <a href="../advanced/class-based-api/" class="md-tabs__link">
           
   
   
@@ -382,13 +384,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../fastapi-setup/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../guides/fastapi-setup/" class="md-tabs__link">
           
   
   
@@ -410,7 +410,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../api-reference/" class="md-tabs__link">
+        <a href="../api-reference/" class="md-tabs__link">
           
   
   
@@ -430,7 +430,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../log-output-format/" class="md-tabs__link">
+      <a href="../log-output-format/" class="md-tabs__link">
         
   
   
@@ -471,7 +471,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Sherlock AI Documentation" class="md-nav__button md-logo" aria-label="Sherlock AI Documentation" data-md-component="logo">
+    <a href=".." title="Sherlock AI Documentation" class="md-nav__button md-logo" aria-label="Sherlock AI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -501,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -588,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quick-start/" class="md-nav__link">
+      <a href="../quick-start/" class="md-nav__link">
         
   
   
@@ -688,7 +688,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../features/" class="md-nav__link ">
+            <a href="../features/" class="md-nav__link ">
               
   
   
@@ -732,7 +732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/performance-monitoring/" class="md-nav__link">
+      <a href="../features/performance-monitoring/" class="md-nav__link">
         
   
   
@@ -760,7 +760,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/memory-monitoring/" class="md-nav__link">
+      <a href="../features/memory-monitoring/" class="md-nav__link">
         
   
   
@@ -788,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/resource-monitoring/" class="md-nav__link">
+      <a href="../features/resource-monitoring/" class="md-nav__link">
         
   
   
@@ -816,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/error-analysis/" class="md-nav__link">
+      <a href="../features/error-analysis/" class="md-nav__link">
         
   
   
@@ -844,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/code-analysis/" class="md-nav__link">
+      <a href="../features/code-analysis/" class="md-nav__link">
         
   
   
@@ -872,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/auto-instrumentation/" class="md-nav__link">
+      <a href="../features/auto-instrumentation/" class="md-nav__link">
         
   
   
@@ -940,7 +940,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/" class="md-nav__link ">
+            <a href="../configuration/" class="md-nav__link ">
               
   
   
@@ -984,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/presets/" class="md-nav__link">
+      <a href="../configuration/presets/" class="md-nav__link">
         
   
   
@@ -1012,7 +1012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/custom-config/" class="md-nav__link">
+      <a href="../configuration/custom-config/" class="md-nav__link">
         
   
   
@@ -1040,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/json-logging/" class="md-nav__link">
+      <a href="../configuration/json-logging/" class="md-nav__link">
         
   
   
@@ -1068,7 +1068,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/log-management/" class="md-nav__link">
+      <a href="../configuration/log-management/" class="md-nav__link">
         
   
   
@@ -1138,7 +1138,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../examples/" class="md-nav__link ">
+            <a href="../examples/" class="md-nav__link ">
               
   
   
@@ -1182,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/fastapi-integration/" class="md-nav__link">
+      <a href="../examples/fastapi-integration/" class="md-nav__link">
         
   
   
@@ -1210,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/async-functions/" class="md-nav__link">
+      <a href="../examples/async-functions/" class="md-nav__link">
         
   
   
@@ -1238,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/mongodb-storage/" class="md-nav__link">
+      <a href="../examples/mongodb-storage/" class="md-nav__link">
         
   
   
@@ -1266,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/api-client/" class="md-nav__link">
+      <a href="../examples/api-client/" class="md-nav__link">
         
   
   
@@ -1294,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/combined-monitoring/" class="md-nav__link">
+      <a href="../examples/combined-monitoring/" class="md-nav__link">
         
   
   
@@ -1326,6 +1326,8 @@
       
   
   
+    
+  
   
   
     
@@ -1341,22 +1343,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../providers/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1374,13 +1377,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1400,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/llm-providers/" class="md-nav__link">
+      <a href="llm-providers/" class="md-nav__link">
         
   
   
@@ -1499,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/class-based-api/" class="md-nav__link">
+      <a href="../advanced/class-based-api/" class="md-nav__link">
         
   
   
@@ -1527,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/runtime-reconfiguration/" class="md-nav__link">
+      <a href="../advanced/runtime-reconfiguration/" class="md-nav__link">
         
   
   
@@ -1555,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/request-tracking/" class="md-nav__link">
+      <a href="../advanced/request-tracking/" class="md-nav__link">
         
   
   
@@ -1583,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/introspection/" class="md-nav__link">
+      <a href="../advanced/introspection/" class="md-nav__link">
         
   
   
@@ -1615,10 +1618,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -1632,22 +1633,21 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -1665,7 +1665,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1683,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi-setup/" class="md-nav__link">
+      <a href="../guides/fastapi-setup/" class="md-nav__link">
         
   
   
@@ -1711,7 +1711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../production-deployment/" class="md-nav__link">
+      <a href="../guides/production-deployment/" class="md-nav__link">
         
   
   
@@ -1736,37 +1736,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../guides/troubleshooting/" class="md-nav__link">
         
   
   
@@ -1782,282 +1755,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#import-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Import Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependencies-missing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies Missing
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logs-not-created" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Logs Not Created
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#duplicate-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-instrumentation-not-working" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-Instrumentation Not Working
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoring Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-logs-missing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Logs Missing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memory-monitoring-not-detailed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memory Monitoring Not Detailed
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Storage Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mongodb-connection-failed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MongoDB Connection Failed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-client-authentication-failed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Client Authentication Failed
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Performance Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#high-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-system-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File System Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="File System Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#disk-space-full" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Space Full
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permission-denied" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Permission Denied
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Help
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2110,7 +1807,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../api-reference/" class="md-nav__link ">
+            <a href="../api-reference/" class="md-nav__link ">
               
   
   
@@ -2154,7 +1851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-reference/decorators/" class="md-nav__link">
+      <a href="../api-reference/decorators/" class="md-nav__link">
         
   
   
@@ -2182,7 +1879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-reference/classes/" class="md-nav__link">
+      <a href="../api-reference/classes/" class="md-nav__link">
         
   
   
@@ -2210,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-reference/configuration/" class="md-nav__link">
+      <a href="../api-reference/configuration/" class="md-nav__link">
         
   
   
@@ -2238,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-reference/utilities/" class="md-nav__link">
+      <a href="../api-reference/utilities/" class="md-nav__link">
         
   
   
@@ -2273,7 +1970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../log-output-format/" class="md-nav__link">
+      <a href="../log-output-format/" class="md-nav__link">
         
   
   
@@ -2320,33 +2017,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-issues" class="md-nav__link">
+  <a href="#available-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation Issues
+        Available Providers
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation Issues">
+    <nav class="md-nav" aria-label="Available Providers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#import-error" class="md-nav__link">
+  <a href="#llm-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Import Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependencies-missing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies Missing
+        LLM Providers
       
     </span>
   </a>
@@ -2359,216 +2045,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-issues" class="md-nav__link">
+  <a href="#why-multiple-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Issues
+        Why Multiple Providers?
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Configuration Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#logs-not-created" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Logs Not Created
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#duplicate-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#auto-instrumentation-not-working" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Auto-Instrumentation Not Working
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring-issues" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitoring Issues
+        Getting Started
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Monitoring Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#performance-logs-missing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Logs Missing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#memory-monitoring-not-detailed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memory Monitoring Not Detailed
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage-issues" class="md-nav__link">
+  <a href="#provider-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage Issues
+        Provider Configuration
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Storage Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mongodb-connection-failed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        MongoDB Connection Failed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-client-authentication-failed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Client Authentication Failed
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-issues" class="md-nav__link">
+  <a href="#coming-soon" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Issues
+        Coming Soon
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Performance Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#high-memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        High Memory Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#slow-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slow Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-system-issues" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        File System Issues
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="File System Issues">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#disk-space-full" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Disk Space Full
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permission-denied" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Permission Denied
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Help
+        Next Steps
       
     </span>
   </a>
@@ -2600,7 +2124,7 @@
   
   
     <li class="md-path__item">
-      <a href="../.." class="md-path__link">
+      <a href=".." class="md-path__link">
         
   <span class="md-ellipsis">
     Home
@@ -2618,10 +2142,10 @@
     
     
       <li class="md-path__item">
-        <a href="../fastapi-setup/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Guides
+    Providers
   </span>
 
         </a>
@@ -2640,150 +2164,46 @@
 
 
 
-<h1 id="troubleshooting">Troubleshooting</h1>
-<p>Common issues and solutions for Sherlock AI.</p>
-<h2 id="installation-issues">Installation Issues</h2>
-<h3 id="import-error">Import Error</h3>
-<p><strong>Problem:</strong> <code>ModuleNotFoundError: No module named 'sherlock_ai'</code></p>
-<p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>sherlock-ai
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># or</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>sherlock-ai
-</span></code></pre></div></p>
-<h3 id="dependencies-missing">Dependencies Missing</h3>
-<p><strong>Problem:</strong> Missing dependencies for optional features</p>
-<p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># For MongoDB support</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pip<span class="w"> </span>install<span class="w"> </span>pymongo
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># For code analysis</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>pip<span class="w"> </span>install<span class="w"> </span>astor<span class="w"> </span>groq
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># For API client</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>pip<span class="w"> </span>install<span class="w"> </span>requests
-</span></code></pre></div></p>
-<h2 id="configuration-issues">Configuration Issues</h2>
-<h3 id="logs-not-created">Logs Not Created</h3>
-<p><strong>Problem:</strong> Log files not appearing in logs directory</p>
-<p><strong>Solution:</strong>
-1. Check directory permissions
-2. Verify configuration:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logging_stats</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">stats</span> <span class="o">=</span> <span class="n">get_logging_stats</span><span class="p">()</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
-</span></code></pre></div></p>
-<h3 id="duplicate-logs">Duplicate Logs</h3>
-<p><strong>Problem:</strong> Seeing duplicate log entries</p>
-<p><strong>Solution:</strong>
-- Don't call <code>sherlock_ai()</code> multiple times
-- In FastAPI with reload, initialize only once</p>
-<h3 id="auto-instrumentation-not-working">Auto-Instrumentation Not Working</h3>
-<p><strong>Problem:</strong> FastAPI routes not being monitored</p>
-<p><strong>Solution:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Initialize BEFORE creating app</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">logging_manager</span> <span class="o">=</span> <span class="n">SherlockAI</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">logging_manager</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># THEN create app</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-</span></code></pre></div></p>
-<h2 id="monitoring-issues">Monitoring Issues</h2>
-<h3 id="performance-logs-missing">Performance Logs Missing</h3>
-<p><strong>Problem:</strong> No performance logs appearing</p>
-<p><strong>Solution:</strong>
-- Ensure <code>@log_performance</code> decorator is applied
-- Check that performance log file is enabled:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">get_current_config</span><span class="p">()</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;performance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span><span class="p">)</span>
-</span></code></pre></div></p>
-<h3 id="memory-monitoring-not-detailed">Memory Monitoring Not Detailed</h3>
-<p><strong>Problem:</strong> Memory logs don't show traced memory</p>
-<p><strong>Solution:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enable tracemalloc</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nd">@monitor_memory</span><span class="p">(</span><span class="n">trace_malloc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">():</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">pass</span>
-</span></code></pre></div></p>
-<h2 id="storage-issues">Storage Issues</h2>
-<h3 id="mongodb-connection-failed">MongoDB Connection Failed</h3>
-<p><strong>Problem:</strong> Error insights not being stored</p>
-<p><strong>Solution:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai.storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">MongoManager</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;MONGO_URI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mongodb://localhost:27017&quot;</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Verify connection</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoManager</span><span class="p">()</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MongoDB enabled: </span><span class="si">{</span><span class="n">mongo</span><span class="o">.</span><span class="n">enabled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div></p>
-<h3 id="api-client-authentication-failed">API Client Authentication Failed</h3>
-<p><strong>Problem:</strong> HTTP 401 when sending insights</p>
-<p><strong>Solution:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Set API key</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SHERLOCK_AI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your-valid-api-key&quot;</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Verify</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SHERLOCK_AI_API_KEY&quot;</span><span class="p">))</span>
-</span></code></pre></div></p>
-<h2 id="performance-issues">Performance Issues</h2>
-<h3 id="high-memory-usage">High Memory Usage</h3>
-<p><strong>Problem:</strong> tracemalloc causing high memory usage</p>
-<p><strong>Solution:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Disable tracemalloc in production</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nd">@monitor_memory</span><span class="p">(</span><span class="n">trace_malloc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">():</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">pass</span>
-</span></code></pre></div></p>
-<h3 id="slow-performance">Slow Performance</h3>
-<p><strong>Problem:</strong> Monitoring adds too much overhead</p>
-<p><strong>Solution:</strong>
-1. Use <code>min_duration</code> to reduce logging:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@log_performance</span><span class="p">(</span><span class="n">min_duration</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Only log &gt; 100ms</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">frequent_function</span><span class="p">():</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="k">pass</span>
-</span></code></pre></div></p>
+<h1 id="providers">Providers</h1>
+<p>Sherlock AI supports multiple providers for different integrations and AI-powered features. Configure providers to customize how Sherlock AI interacts with external services.</p>
+<h2 id="available-providers">Available Providers</h2>
+<h3 id="llm-providers">LLM Providers</h3>
+<p>Configure AI language models for intelligent features like error analysis, performance insights, and code analysis.</p>
+<p><a href="llm-providers/">Learn more about LLM Providers →</a></p>
+<p><strong>Supported:</strong>
+- <strong>Groq</strong> (default) - Fast inference with open-source models
+- <strong>Azure OpenAI</strong> - Enterprise-grade OpenAI models on Azure</p>
+<hr />
+<h2 id="why-multiple-providers">Why Multiple Providers?</h2>
+<p>Sherlock AI's provider system gives you flexibility to:</p>
+<ul>
+<li>✅ Choose the best service for your infrastructure</li>
+<li>✅ Use enterprise solutions or open-source alternatives</li>
+<li>✅ Switch providers without changing your code</li>
+<li>✅ Support different environments (dev, staging, production)</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
 <ol>
-<li>Disable unused monitoring:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">()</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;api&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-</span></code></pre></div></li>
+<li>Choose your provider based on your needs</li>
+<li>Configure environment variables</li>
+<li>Sherlock AI automatically uses the configured provider</li>
 </ol>
-<h2 id="file-system-issues">File System Issues</h2>
-<h3 id="disk-space-full">Disk Space Full</h3>
-<p><strong>Problem:</strong> Running out of disk space</p>
-<p><strong>Solution:</strong>
-1. Reduce log file sizes:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max_bytes</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span>  <span class="c1"># 10MB</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;app&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">backup_count</span> <span class="o">=</span> <span class="mi">3</span>
-</span></code></pre></div></p>
-<ol>
-<li>Clean up old logs:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>find<span class="w"> </span>/var/log/myapp<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.log.*&quot;</span><span class="w"> </span>-mtime<span class="w"> </span>+7<span class="w"> </span>-delete
-</span></code></pre></div></li>
-</ol>
-<h3 id="permission-denied">Permission Denied</h3>
-<p><strong>Problem:</strong> Cannot write to logs directory</p>
-<p><strong>Solution:</strong>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Fix permissions</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>your_user:your_group<span class="w"> </span>/var/log/myapp
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/log/myapp
-</span></code></pre></div></p>
-<h2 id="getting-help">Getting Help</h2>
-<p>If you encounter issues not covered here:</p>
-<ol>
-<li>Check the <a href="https://github.com/pranawmishra/sherlock-ai/issues">GitHub Issues</a></li>
-<li>Enable debug logging:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">(</span><span class="n">console_level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
-</span></code></pre></div></li>
-<li>Check logging statistics:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logging_stats</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">get_logging_stats</span><span class="p">())</span>
-</span></code></pre></div></li>
-</ol>
+<h2 id="provider-configuration">Provider Configuration</h2>
+<p>Each provider has its own configuration requirements. Check the individual provider documentation for setup instructions.</p>
+<h2 id="coming-soon">Coming Soon</h2>
+<p>More provider integrations are planned:</p>
+<ul>
+<li>Additional LLM providers</li>
+<li>Monitoring backends</li>
+<li>Log aggregation services</li>
+<li>And more!</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="llm-providers/">LLM Providers</a> - Configure AI language models</li>
+<li><a href="../configuration/">Configuration</a> - General configuration options</li>
+<li><a href="../features/error-analysis/">Error Analysis</a> - Use AI-powered error analysis</li>
+</ul>
 
 
 
@@ -2868,10 +2288,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

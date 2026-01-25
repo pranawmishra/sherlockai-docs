@@ -2,138 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.sherlockai.dev/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/installation/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/log-output-format/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/quick-start/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/advanced/class-based-api/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/advanced/introspection/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/advanced/request-tracking/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/advanced/runtime-reconfiguration/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/api-reference/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/api-reference/classes/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/api-reference/configuration/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/api-reference/decorators/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/api-reference/utilities/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/configuration/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/configuration/custom-config/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/configuration/json-logging/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/configuration/log-management/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/configuration/presets/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/api-client/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/async-functions/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/combined-monitoring/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/fastapi-integration/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/examples/mongodb-storage/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/auto-instrumentation/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/code-analysis/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/error-analysis/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/memory-monitoring/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/performance-monitoring/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/features/resource-monitoring/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/guides/fastapi-setup/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/guides/production-deployment/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://docs.sherlockai.dev/guides/troubleshooting/</loc>
-         <lastmod>2026-01-01</lastmod>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.sherlockai.dev/providers/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.sherlockai.dev/providers/llm-providers/</loc>
+         <lastmod>2026-01-25</lastmod>
     </url>
 </urlset>
