@@ -11,6 +11,7 @@ Configure AI language models for intelligent features like error analysis, perfo
 [Learn more about LLM Providers →](llm-providers.md)
 
 **Supported:**
+
 - **Groq** (default) - Fast inference with open-source models
 - **Azure OpenAI** - Enterprise-grade OpenAI models on Azure
 
