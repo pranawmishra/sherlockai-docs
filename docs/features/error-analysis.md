@@ -107,9 +107,8 @@ def function_with_errors():
 Use the storage clients directly:
 
 ```python
-from sherlock_ai.storage import MongoManager, ApiClient
+from sherlock_ai.storage import MongoManager
 
-# MongoDB
 mongo = MongoManager("mongodb://localhost:27017")
 error_data = {
     "function_name": "my_function",
@@ -118,10 +117,6 @@ error_data = {
     "probable_cause": "AI analysis result"
 }
 mongo.save(error_data)
-
-# API Client
-api_client = ApiClient()
-api_client.post_error_insights(error_data)
 ```
 
 ## Error Insight Format
@@ -173,21 +168,6 @@ mongo = MongoManager("mongodb://user:pass@localhost:27017/custom_db")
 # Check if MongoDB is available
 if mongo.enabled:
     print("MongoDB storage is configured")
-```
-
-### API Client Configuration
-
-```python
-from sherlock_ai.storage import ApiClient
-
-# Required: API key
-os.environ["SHERLOCK_AI_API_KEY"] = "your-api-key"
-
-# Optional: Custom base URL
-os.environ["SHERLOCK_AI_API_BASE_URL"] = "https://your-backend.com/api/v1"
-
-# Initialize
-api_client = ApiClient()
 ```
 
 ### Environment Variables

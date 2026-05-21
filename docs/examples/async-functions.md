@@ -38,7 +38,7 @@ async def process_async_data():
 ## Async Context Managers
 
 ```python
-from sherlock_ai.performance import PerformanceTimer
+from sherlock_ai import PerformanceTimer
 from sherlock_ai import MemoryTracker
 
 async def async_pipeline():

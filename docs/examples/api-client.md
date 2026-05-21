@@ -32,22 +32,6 @@ def slow_function():
     return heavy_computation()
 ```
 
-## Manual Submission
-
-```python
-from sherlock_ai.storage import ApiClient
-
-api_client = ApiClient()
-
-error_data = {
-    "function_name": "my_function",
-    "error_message": "Error occurred",
-    "stack_trace": "...",
-    "probable_cause": "Analysis"
-}
-
-api_client.post_error_insights(error_data)
-```
 
 ## Complete Example
 

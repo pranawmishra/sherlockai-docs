@@ -117,7 +117,7 @@ Context manager for timing code blocks.
 
 **Example:**
 ```python
-from sherlock_ai.performance import PerformanceTimer
+from sherlock_ai import PerformanceTimer
 
 with PerformanceTimer("database_query"):
     result = db.query("SELECT * FROM users")

@@ -59,7 +59,7 @@ result = await async_api_call()
 Monitor specific code blocks without decorating entire functions:
 
 ```python
-from sherlock_ai.performance import PerformanceTimer
+from sherlock_ai import PerformanceTimer
 
 def complex_operation():
     # Some initialization
@@ -92,7 +92,7 @@ with PerformanceTimer("cache_check", min_duration=0.01):
 For more control, use the low-level API:
 
 ```python
-from sherlock_ai.performance import log_execution_time
+from sherlock_ai.monitoring.performance import log_execution_time
 import time
 
 def custom_operation():
