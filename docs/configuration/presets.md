@@ -1,66 +1,43 @@
-# Configuration Presets
+# Configuration Patterns
 
-Sherlock AI provides pre-built configuration presets for common scenarios. These presets are ready-to-use configurations that follow best practices for different environments.
+Sherlock AI uses `LoggingConfig` directly for all configuration. This page shows ready-to-use patterns for common environments and use cases.
 
-## Available Presets
+## Environment Patterns
 
-### Development Preset
+### Development
 
-Optimized for development with debug-level logging:
+Debug-level logging with human-readable text format:
 
 ```python
-from sherlock_ai import sherlock_ai, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig
 
-sherlock_ai(LoggingPresets.development())
-```
-
-**Features:**
-- Debug-level console output
-- All log files enabled
-- Detailed logging for debugging
-- Suitable for local development
-
-**Configuration:**
-```python
-LoggingConfig(
+config = LoggingConfig(
+    log_format_type="log",   # human-readable .log files
     console_level="DEBUG",
-    root_level="DEBUG",
-    log_files={
-        "app": LogFileConfig("app"),
-        "errors": LogFileConfig("errors", level="ERROR"),
-        "api": LogFileConfig("api"),
-        "database": LogFileConfig("database"),
-        "services": LogFileConfig("services"),
-        "performance": LogFileConfig("performance")
-    }
+    root_level="DEBUG"
 )
-```
-
-### Production Preset
-
-Optimized for production with performance and stability:
-
-```python
-from sherlock_ai import sherlock_ai, LoggingPresets
-
-sherlock_ai(LoggingPresets.production())
+SherlockAI(config).setup()
 ```
 
 **Features:**
-- INFO-level logging (less verbose)
-- Larger file sizes for fewer rotations
-- More backup files
-- Optimized for performance
+- Debug-level console and file output
+- Human-readable `.log` files (easier to `tail -f` locally)
+- All default log files enabled
 
-**Configuration:**
+### Production
+
+Structured JSON format with larger rotation limits:
+
 ```python
-LoggingConfig(
-    console_level="INFO",
-    root_level="INFO",
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
+
+config = LoggingConfig(
+    log_format_type="json",        # structured JSON files
+    console_level="WARNING",
     log_files={
         "app": LogFileConfig(
             "app",
-            max_bytes=50*1024*1024,  # 50MB
+            max_bytes=50*1024*1024,   # 50MB
             backup_count=10
         ),
         "errors": LogFileConfig(
@@ -73,58 +50,52 @@ LoggingConfig(
             "performance",
             max_bytes=50*1024*1024,
             backup_count=10
-        )
+        ),
+        "monitoring": LogFileConfig("monitoring"),
+        "error_insights": LogFileConfig("error_insights"),
+        "performance_insights": LogFileConfig("performance_insights"),
     }
 )
-```
-
-### Minimal Preset
-
-Basic setup with only essential logging:
-
-```python
-from sherlock_ai import sherlock_ai, LoggingPresets
-
-sherlock_ai(LoggingPresets.minimal())
+SherlockAI(config).setup()
 ```
 
 **Features:**
-- Only app log file
-- INFO-level logging
-- Console output enabled
-- Minimal disk usage
+- JSON format for log aggregation (Elasticsearch, Splunk, CloudWatch)
+- INFO-level logging with reduced console noise
+- Larger file sizes for fewer rotations
 
-**Configuration:**
+### Minimal
+
+Console + basic app log only — good for simple scripts or testing:
+
 ```python
-LoggingConfig(
-    console_level="INFO",
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
+
+config = LoggingConfig(
     log_files={
-        "app": LogFileConfig("app")
+        "app": LogFileConfig("app"),
+        "errors": LogFileConfig("errors", level="ERROR"),
     }
 )
-```
-
-### Performance Only Preset
-
-Focus on performance monitoring:
-
-```python
-from sherlock_ai import sherlock_ai, LoggingPresets
-
-sherlock_ai(LoggingPresets.performance_only())
+SherlockAI(config).setup()
 ```
 
 **Features:**
-- Only performance log file
-- No console output (cleaner for benchmarking)
-- Dedicated to performance metrics
+- Only essential log files
+- Minimal disk usage
+- Console output enabled
 
-**Configuration:**
+### Performance Focus
+
+Only log performance data — useful for benchmarking:
+
 ```python
-LoggingConfig(
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig, LoggerConfig
+
+config = LoggingConfig(
     console_enabled=False,
     log_files={
-        "performance": LogFileConfig("performance")
+        "performance": LogFileConfig("performance"),
     },
     loggers={
         "performance": LoggerConfig(
@@ -134,137 +105,155 @@ LoggingConfig(
         )
     }
 )
+SherlockAI(config).setup()
 ```
+
+**Features:**
+- Performance log file only
+- No console output (cleaner for benchmarking)
+- Dedicated to performance metrics
 
 ## Custom File Names
 
-Create a preset with custom file names:
+Specify your own file names by passing base filenames — paths are automatically expanded:
 
 ```python
-from sherlock_ai import LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
 
-# Use custom file names
-config = LoggingPresets.custom_files({
-    "app": "logs/application.log",
-    "performance": "logs/metrics.log",
-    "errors": "logs/error_tracking.log"
-})
-
-from sherlock_ai import sherlock_ai
-sherlock_ai(config)
+config = LoggingConfig(
+    logs_dir="logs",
+    log_format_type="json",
+    log_files={
+        "app": LogFileConfig("application"),      # → logs/application.json
+        "errors": LogFileConfig("error_tracking"), # → logs/error_tracking.json
+        "performance": LogFileConfig("metrics"),   # → logs/metrics.json
+    }
+)
+SherlockAI(config).setup()
 ```
 
-## Modifying Presets
+## Environment-Based Selection
 
-Start with a preset and customize it:
-
-```python
-from sherlock_ai import sherlock_ai, LoggingPresets
-
-# Start with production preset
-config = LoggingPresets.production()
-
-# Customize as needed
-config.console_level = "WARNING"
-config.log_files["app"].max_bytes = 100*1024*1024  # 100MB
-config.log_files["api"].enabled = True  # Enable API logs
-
-# Apply the modified configuration
-sherlock_ai(config)
-```
-
-## Environment-Based Presets
-
-Use different presets based on environment:
+Choose a pattern based on an environment variable:
 
 ```python
 import os
-from sherlock_ai import sherlock_ai, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
 
 env = os.getenv("ENVIRONMENT", "development")
 
 if env == "production":
-    sherlock_ai(LoggingPresets.production())
+    config = LoggingConfig(
+        log_format_type="json",
+        console_level="WARNING",
+        log_files={
+            "app": LogFileConfig("app", max_bytes=50*1024*1024, backup_count=10),
+            "errors": LogFileConfig("errors", level="ERROR", max_bytes=50*1024*1024),
+            "performance": LogFileConfig("performance"),
+            "monitoring": LogFileConfig("monitoring"),
+            "error_insights": LogFileConfig("error_insights"),
+            "performance_insights": LogFileConfig("performance_insights"),
+        }
+    )
 elif env == "staging":
-    # Production settings with debug for staging
-    config = LoggingPresets.production()
-    config.console_level = "DEBUG"
-    sherlock_ai(config)
+    config = LoggingConfig(
+        log_format_type="json",
+        console_level="DEBUG"   # More verbose than prod for debugging
+    )
 elif env == "testing":
-    # Minimal for testing
-    sherlock_ai(LoggingPresets.minimal())
+    config = LoggingConfig(
+        logs_dir="test_logs",
+        console_enabled=False,
+        log_files={"app": LogFileConfig("app")}
+    )
 else:
     # Development
-    sherlock_ai(LoggingPresets.development())
+    config = LoggingConfig(
+        log_format_type="log",
+        console_level="DEBUG",
+        root_level="DEBUG"
+    )
+
+SherlockAI(config).setup()
 ```
 
-## Preset Comparison
+## Modifying a Configuration
 
-| Preset | Console Level | Log Files | File Size | Backups | Use Case |
-|--------|--------------|-----------|-----------|---------|----------|
-| Development | DEBUG | All | 10MB | 5 | Local development |
-| Production | INFO | App, Errors, Performance | 50MB | 10 | Production |
-| Minimal | INFO | App only | 10MB | 5 | Simple apps |
-| Performance Only | Disabled | Performance only | 10MB | 5 | Benchmarking |
+Build a base config then adjust it:
+
+```python
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
+
+# Start with production-style settings
+config = LoggingConfig(
+    log_format_type="json",
+    console_level="WARNING",
+)
+
+# Then tune specific values
+config.console_level = "INFO"
+config.log_files["app"].max_bytes = 100 * 1024 * 1024  # 100MB
+
+SherlockAI(config).setup()
+```
+
+## Pattern Comparison
+
+| Pattern | Console Level | Format | Log Files | Use Case |
+|---------|--------------|--------|-----------|----------|
+| Development | DEBUG | `.log` | All (default) | Local development |
+| Production | WARNING | `.json` | App, Errors, Performance + insights | Production |
+| Minimal | INFO | `.json` | App, Errors only | Simple apps / tests |
+| Performance Only | Disabled | `.json` | Performance only | Benchmarking |
 
 ## Best Practices
 
-### 1. Start with a Preset
+### 1. Build Your Own Helper
 
-Always start with the closest preset:
-
-```python
-# For production
-config = LoggingPresets.production()
-# Then customize
-config.console_level = "WARNING"
-```
-
-### 2. Environment Variables
-
-Use environment variables for flexibility:
-
-```python
-env = os.getenv("ENV", "development")
-preset = getattr(LoggingPresets, env)()
-sherlock_ai(preset)
-```
-
-### 3. Testing Configuration
-
-Use minimal preset for testing:
-
-```python
-# In test setup
-sherlock_ai(LoggingPresets.minimal())
-```
-
-### 4. Custom Presets
-
-Create your own preset functions:
+Create a module-level factory so your config is centralised:
 
 ```python
 from sherlock_ai import LoggingConfig, LogFileConfig
 
-def my_custom_preset():
+def get_logging_config(env: str = "development") -> LoggingConfig:
+    if env == "production":
+        return LoggingConfig(
+            log_format_type="json",
+            console_level="WARNING",
+        )
     return LoggingConfig(
-        logs_dir="custom_logs",
-        console_level="INFO",
-        log_files={
-            "app": LogFileConfig("application", max_bytes=25*1024*1024),
-            "errors": LogFileConfig("errors", level="ERROR")
-        }
+        log_format_type="log",
+        console_level="DEBUG",
+        root_level="DEBUG",
     )
+```
 
-# Use it
-from sherlock_ai import sherlock_ai
-sherlock_ai(my_custom_preset())
+### 2. Use Environment Variables
+
+```python
+import os
+config = LoggingConfig(
+    logs_dir=os.getenv("LOG_DIR", "logs"),
+    console_level=os.getenv("LOG_LEVEL", "INFO"),
+    log_format_type=os.getenv("LOG_FORMAT", "json")
+)
+```
+
+### 3. Use Minimal Config for Testing
+
+```python
+# In test setup
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
+
+SherlockAI(LoggingConfig(
+    console_enabled=False,
+    log_files={"app": LogFileConfig("app")}
+)).setup()
 ```
 
 ## Next Steps
 
 - [Custom Configuration](custom-config.md) - Build your own configuration from scratch
-- [JSON Logging](json-logging.md) - Use JSON format with presets
+- [JSON Logging](json-logging.md) - Use JSON format
 - [Log Management](log-management.md) - Manage log files and rotation
-- [Examples](../examples/index.md) - See presets in action
-
+- [Examples](../examples/index.md) - See configurations in action

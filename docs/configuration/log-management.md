@@ -9,7 +9,7 @@ Manage log files, rotation, sizing, and cleanup with Sherlock AI's flexible log 
 Log files automatically rotate when they reach the configured size:
 
 ```python
-from sherlock_ai import LoggingConfig, LogFileConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
 
 config = LoggingConfig(
     log_files={
@@ -21,7 +21,7 @@ config = LoggingConfig(
     }
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 **Result:**
@@ -79,21 +79,21 @@ config = LoggingConfig(
 ### Runtime Configuration
 
 ```python
-from sherlock_ai import LoggingConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig
 
 # Start with default configuration
 config = LoggingConfig()
 
 # Disable specific log files
-config.log_files["api"].enabled = False
-config.log_files["services"].enabled = False
+config.log_files["monitoring"].enabled = False
+config.log_files["performance_insights"].enabled = False
 
 # Enable errors with higher retention
 config.log_files["errors"].enabled = True
 config.log_files["errors"].backup_count = 15
 
 # Apply the modified configuration
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 ## Log Levels
@@ -334,9 +334,9 @@ Save disk space by disabling unnecessary log files:
 
 ```python
 config = LoggingConfig()
-config.log_files["api"].enabled = False
-config.log_files["services"].enabled = False
-config.log_files["database"].enabled = False
+config.log_files["monitoring"].enabled = False
+config.log_files["performance_insights"].enabled = False
+config.log_files["error_insights"].enabled = False
 ```
 
 ### 5. Use Monitoring
@@ -386,7 +386,7 @@ If log files aren't created:
 
 ## Next Steps
 
-- [Configuration Presets](presets.md) - Pre-configured setups
+- [Configuration Patterns](presets.md) - Common configuration patterns
 - [Custom Configuration](custom-config.md) - Build custom configs
 - [JSON Logging](json-logging.md) - Use JSON format
 - [Production Deployment](../guides/production-deployment.md) - Deploy to production

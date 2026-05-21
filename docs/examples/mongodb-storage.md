@@ -42,12 +42,12 @@ mongo.save(error_data)
 ## Complete Example
 
 ```python
-from sherlock_ai import sherlock_ai, log_performance
+from sherlock_ai import SherlockAI, log_performance
 from sherlock_ai.monitoring import sherlock_error_handler
 import os
 
 os.environ["MONGO_URI"] = "mongodb://localhost:27017"
-sherlock_ai()
+SherlockAI().setup()
 
 @log_performance
 @sherlock_error_handler

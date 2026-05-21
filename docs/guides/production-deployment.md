@@ -7,17 +7,27 @@ Best practices for deploying Sherlock AI in production environments.
 Use production preset with customizations:
 
 ```python
-from sherlock_ai import SherlockAI, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
 import os
 
-config = LoggingPresets.production()
-config.auto_instrument = True
-config.log_format_type = "json"  # JSON for log aggregation
-config.logs_dir = "/var/log/myapp"
+config = LoggingConfig(
+    log_format_type="json",       # JSON for log aggregation
+    console_level="WARNING",
+    auto_instrument=True,
+    logs_dir="/var/log/myapp",
+    log_files={
+        "app": LogFileConfig("app", max_bytes=50*1024*1024, backup_count=10),
+        "errors": LogFileConfig("errors", level="ERROR", max_bytes=50*1024*1024, backup_count=10),
+        "performance": LogFileConfig("performance", max_bytes=50*1024*1024, backup_count=10),
+        "monitoring": LogFileConfig("monitoring"),
+        "error_insights": LogFileConfig("error_insights"),
+        "performance_insights": LogFileConfig("performance_insights"),
+    }
+)
 
 # Add MongoDB for error insights
-os.environ["MONGO_URI"] = os.getenv("MONGO_URI")
-os.environ["SHERLOCK_AI_API_KEY"] = os.getenv("SHERLOCK_AI_API_KEY")
+os.environ["MONGO_URI"] = os.getenv("MONGO_URI", "")
+os.environ["SHERLOCK_AI_API_KEY"] = os.getenv("SHERLOCK_AI_API_KEY", "")
 
 logger_manager = SherlockAI(config=config)
 logger_manager.setup()

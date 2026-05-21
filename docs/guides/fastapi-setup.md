@@ -70,13 +70,16 @@ import os
 env = os.getenv("ENVIRONMENT", "development")
 
 if env == "production":
-    from sherlock_ai import LoggingPresets
-    config = LoggingPresets.production()
-    config.auto_instrument = True
+    config = LoggingConfig(
+        log_format_type="json",
+        console_level="WARNING",
+        auto_instrument=True
+    )
 else:
     config = LoggingConfig(
-        auto_instrument=True,
-        console_level="DEBUG"
+        log_format_type="log",
+        console_level="DEBUG",
+        auto_instrument=True
     )
 ```
 

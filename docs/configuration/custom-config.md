@@ -5,7 +5,7 @@ Build completely custom logging configurations tailored to your application's sp
 ## Basic Custom Configuration
 
 ```python
-from sherlock_ai import sherlock_ai, LoggingConfig, LogFileConfig, LoggerConfig
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig, LoggerConfig
 
 config = LoggingConfig(
     logs_dir="my_app_logs",
@@ -16,29 +16,41 @@ config = LoggingConfig(
     }
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 ## Complete Custom Configuration
 
 ```python
-from sherlock_ai import LoggingConfig, LogFileConfig, LoggerConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig, LoggerConfig
 
 config = LoggingConfig(
     # Directory configuration
     logs_dir="application_logs",
-    
+
     # Format configuration
+    log_format_type="json",        # "json" (default) or "log"
     log_format="%(asctime)s - %(request_id)s - %(name)s - %(levelname)s - %(message)s",
     date_format="%Y-%m-%d %H:%M:%S",
-    
+
     # Console configuration
     console_enabled=True,
     console_level="DEBUG",
-    
+
     # Root logger level
     root_level="INFO",
-    
+
+    # Auto-instrumentation
+    auto_instrument=True,              # Instrument FastAPI routes (default: True)
+    auto_trace_functions=False,        # Trace all function calls (default: False)
+    auto_min_duration=0.0,             # Min duration threshold for function tracing
+
+    # Monitoring defaults
+    monitor_resources=False,           # Enable resource monitoring by default
+    monitor_memory=False,              # Enable memory monitoring by default
+    log_performance_enabled=True,      # Enable performance logging
+    performance_insights=True,         # Enable AI performance insights
+
     # Log files
     log_files={
         "application": LogFileConfig(
@@ -61,23 +73,19 @@ config = LoggingConfig(
             max_bytes=100*1024*1024,  # 100MB
             backup_count=5
         ),
-        "api": LogFileConfig("api_requests"),
-        "database": LogFileConfig("db_operations")
+        "monitoring": LogFileConfig("monitoring"),
+        "error_insights": LogFileConfig("error_insights"),
+        "performance_insights": LogFileConfig("performance_insights"),
     },
-    
+
     # Loggers
     loggers={
         "api": LoggerConfig(
             "mycompany.api",
             level="INFO",
-            log_files=["application", "api"],
+            log_files=["application"],
             propagate=True,
             enabled=True
-        ),
-        "database": LoggerConfig(
-            "mycompany.db",
-            level="INFO",
-            log_files=["application", "database"]
         ),
         "performance": LoggerConfig(
             "PerformanceLogger",
@@ -86,7 +94,7 @@ config = LoggingConfig(
             propagate=False
         )
     },
-    
+
     # External loggers
     external_loggers={
         "uvicorn": "INFO",
@@ -94,7 +102,7 @@ config = LoggingConfig(
     }
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 ## Configuration Components
@@ -103,15 +111,25 @@ sherlock_ai(config)
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `logs_dir` | str | "logs" | Directory for log files |
-| `log_format` | str | Standard format | Log message format string |
-| `date_format` | str | "%Y-%m-%d %H:%M:%S" | Date format for timestamps |
-| `console_enabled` | bool | True | Enable console output |
-| `console_level` | str/int | INFO | Console log level |
-| `root_level` | str/int | INFO | Root logger level |
+| `logs_dir` | str | `"logs"` | Directory for log files |
+| `log_format_type` | str | `"json"` | `"json"` for JSON format, `"log"` for text format |
+| `log_format` | str | Standard format | Log message format string (text format only) |
+| `date_format` | str | `"%Y-%m-%d %H:%M:%S"` | Date format for timestamps |
+| `console_enabled` | bool | `True` | Enable console output |
+| `console_level` | str/int | `INFO` | Console log level |
+| `root_level` | str/int | `INFO` | Root logger level |
+| `auto_instrument` | bool | `True` | Auto-instrument FastAPI routes |
+| `auto_trace_functions` | bool | `False` | Trace all function calls automatically |
+| `auto_frameworks` | list | `["fastapi"]` | Frameworks to auto-instrument |
+| `auto_exclude_modules` | list | `["sys","os","logging"]` | Modules excluded from function tracing |
+| `auto_min_duration` | float | `0.0` | Min duration (s) for traced function logs |
+| `monitor_resources` | bool | `False` | Enable resource monitoring by default |
+| `monitor_memory` | bool | `False` | Enable memory monitoring by default |
+| `log_performance_enabled` | bool | `True` | Enable performance logging |
+| `performance_insights` | bool | `True` | Enable AI performance insights |
 | `log_files` | dict | Default files | Log file configurations |
 | `loggers` | dict | Default loggers | Logger configurations |
-| `external_loggers` | dict | {} | External library log levels |
+| `external_loggers` | dict | `{}` | External library log levels |
 
 ### LogFileConfig Parameters
 
@@ -170,7 +188,7 @@ config = LoggingConfig(
 ### Microservice Configuration
 
 ```python
-from sherlock_ai import LoggingConfig, LogFileConfig, LoggerConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig, LoggerConfig
 
 config = LoggingConfig(
     logs_dir="service_logs",
@@ -179,13 +197,14 @@ config = LoggingConfig(
     log_files={
         "app": LogFileConfig("application", max_bytes=100*1024*1024),
         "errors": LogFileConfig("errors", level="ERROR", backup_count=20),
-        "api": LogFileConfig("api_requests", backup_count=15),
         "performance": LogFileConfig("performance_metrics"),
+        "monitoring": LogFileConfig("monitoring"),
+        "error_insights": LogFileConfig("error_insights"),
+        "performance_insights": LogFileConfig("performance_insights"),
     },
     loggers={
-        "api": LoggerConfig("service.api", log_files=["app", "api"]),
         "business": LoggerConfig("service.business", log_files=["app"]),
-        "performance": LoggerConfig("PerformanceLogger", log_files=["performance"])
+        "performance": LoggerConfig("PerformanceLogger", log_files=["performance"], propagate=False)
     },
     external_loggers={
         "uvicorn": "WARNING",
@@ -193,7 +212,7 @@ config = LoggingConfig(
     }
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 ### Data Pipeline Configuration
@@ -333,7 +352,9 @@ config = LoggingConfig(
 
 # Add more as needed
 config.log_files["errors"] = LogFileConfig("errors", level="ERROR")
-config.log_files["api"] = LogFileConfig("api")
+config.log_files["monitoring"] = LogFileConfig("monitoring")
+
+SherlockAI(config).setup()
 ```
 
 ### 2. Use Meaningful Names
@@ -404,7 +425,7 @@ config = LoggingConfig(
 
 ## Next Steps
 
-- [Configuration Presets](presets.md) - Start with presets
+- [Configuration Patterns](presets.md) - Common configuration patterns
 - [JSON Logging](json-logging.md) - Use JSON format
 - [Log Management](log-management.md) - Manage files and rotation
 - [API Reference](../api-reference/configuration.md) - Complete API documentation

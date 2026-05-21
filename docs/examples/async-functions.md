@@ -5,11 +5,11 @@ Monitor asynchronous functions and coroutines with Sherlock AI.
 ## Basic Async Monitoring
 
 ```python
-from sherlock_ai import sherlock_ai, log_performance
+from sherlock_ai import SherlockAI, log_performance
 import httpx
 import asyncio
 
-sherlock_ai()
+SherlockAI().setup()
 
 @log_performance
 async def fetch_data(url: str):

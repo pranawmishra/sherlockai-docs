@@ -45,11 +45,11 @@ pip install sherlock-ai
 ### Basic Usage
 
 ```python
-from sherlock_ai import sherlock_ai, get_logger, log_performance
+from sherlock_ai import SherlockAI, get_logger, log_performance
 import time
 
 # Initialize logging (call once at application startup)
-sherlock_ai()
+SherlockAI().setup()
 
 # Get a logger for your module
 logger = get_logger(__name__)

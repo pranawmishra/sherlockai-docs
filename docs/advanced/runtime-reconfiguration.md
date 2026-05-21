@@ -5,17 +5,24 @@ Change logging configuration without restarting your application.
 ## Basic Reconfiguration
 
 ```python
-from sherlock_ai import SherlockAI, LoggingConfig, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig
 
 # Initial setup
 logger_manager = SherlockAI()
 logger_manager.setup()
 
-# Change to production configuration
-logger_manager.reconfigure(LoggingPresets.production())
+# Change to a production-style configuration
+logger_manager.reconfigure(LoggingConfig(
+    log_format_type="json",
+    console_level="WARNING"
+))
 
-# Change to debug mode
-logger_manager.reconfigure(LoggingPresets.development())
+# Switch to debug mode
+logger_manager.reconfigure(LoggingConfig(
+    log_format_type="log",
+    console_level="DEBUG",
+    root_level="DEBUG"
+))
 ```
 
 ## Custom Reconfiguration

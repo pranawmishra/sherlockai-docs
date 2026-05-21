@@ -51,7 +51,7 @@ print(stats)
 **Problem:** Seeing duplicate log entries
 
 **Solution:**
-- Don't call `sherlock_ai()` multiple times
+- Don't call `SherlockAI().setup()` multiple times
 - In FastAPI with reload, initialize only once
 
 ### Auto-Instrumentation Not Working

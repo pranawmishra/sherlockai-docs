@@ -7,11 +7,12 @@ Get up and running with Sherlock AI in minutes.
 The simplest way to get started:
 
 ```python
-from sherlock_ai import sherlock_ai, get_logger, log_performance
+from sherlock_ai import SherlockAI, get_logger, log_performance
 import time
 
-# Initialize logging (call once at application startup)
-sherlock_ai()
+# Initialize logging once at application startup
+logger_manager = SherlockAI()
+logger_manager.setup()
 
 # Get a logger for your module
 logger = get_logger(__name__)
@@ -31,20 +32,22 @@ result = my_function()
 Add more features with decorators:
 
 ```python
-from sherlock_ai import sherlock_ai, get_logger, log_performance, hardcoded_value_detector
+from sherlock_ai import SherlockAI, get_logger, log_performance, hardcoded_value_detector
 from sherlock_ai.monitoring import sherlock_error_handler
 import time
 
 # Initialize logging
-sherlock_ai()
+logger_manager = SherlockAI()
+logger_manager.setup()
+
 logger = get_logger(__name__)
 
 @log_performance
 @hardcoded_value_detector
 @sherlock_error_handler
 def my_function():
-    # Your code here - hardcoded values will be automatically detected
-    # Errors will be automatically analyzed and stored in MongoDB
+    # Hardcoded values are automatically detected
+    # Errors are automatically analyzed and stored in MongoDB
     try:
         time.sleep(1)
         logger.info("Processing completed")
@@ -58,37 +61,43 @@ result = my_function()
 
 This will:
 - Log performance metrics: `PERFORMANCE | my_module.my_function | SUCCESS | 1.003s`
-- Automatically refactor any hardcoded values to constants
+- Automatically detect hardcoded values
 - Analyze any errors with AI-powered insights
 
-## Class-Based Setup (Advanced)
+## Custom Configuration
 
-For more control, use the class-based API:
+Configure format type, log directory, or any other option via `LoggingConfig`:
 
 ```python
-from sherlock_ai import SherlockAI, get_logger, log_performance
+from sherlock_ai import SherlockAI, LoggingConfig, get_logger, log_performance
 
-# Initialize with class-based approach
+# JSON format (default) — creates .json log files
+logger_manager = SherlockAI(LoggingConfig(log_format_type="json"))
+logger_manager.setup()
+
+# Standard text format — creates .log files
+logger_manager = SherlockAI(LoggingConfig(log_format_type="log"))
+logger_manager.setup()
+
+logger = get_logger(__name__)
+```
+
+## Runtime Reconfiguration
+
+Change the configuration without restarting:
+
+```python
+from sherlock_ai import SherlockAI, LoggingConfig
+
 logger_manager = SherlockAI()
 logger_manager.setup()
 
-# Get a logger for your module
-logger = get_logger(__name__)
-
-@log_performance
-def my_function():
-    logger.info("Processing with class-based setup")
-    return "result"
-
-# Later, reconfigure without restart
-from sherlock_ai import LoggingPresets
-logger_manager.reconfigure(LoggingPresets.development())
-
-# Or use as context manager
-with SherlockAI() as temp_logger:
-    # Temporary logging configuration
-    logger.info("This uses temporary configuration")
-# Automatically cleaned up
+# Switch to a debug configuration at runtime
+debug_config = LoggingConfig(
+    console_level="DEBUG",
+    root_level="DEBUG"
+)
+logger_manager.reconfigure(debug_config)
 ```
 
 ## Using Logger Name Constants
@@ -96,27 +105,25 @@ with SherlockAI() as temp_logger:
 Use predefined logger names with autocomplete support:
 
 ```python
-from sherlock_ai import sherlock_ai, get_logger, LoggerNames, list_available_loggers
+from sherlock_ai import SherlockAI, get_logger, LoggerNames, list_available_loggers
 
-# Initialize logging
-sherlock_ai()
+logger_manager = SherlockAI()
+logger_manager.setup()
 
-# Use predefined logger names with autocomplete support
-api_logger = get_logger(LoggerNames.API)
-db_logger = get_logger(LoggerNames.DATABASE)
-service_logger = get_logger(LoggerNames.SERVICES)
+# Use predefined logger names
+performance_logger = get_logger(LoggerNames.PERFORMANCE)
+monitoring_logger  = get_logger(LoggerNames.MONITORING)
+error_logger       = get_logger(LoggerNames.ERRORINSIGHTS)
 
 # Discover available loggers programmatically
 available_loggers = list_available_loggers()
 print(f"Available loggers: {available_loggers}")
 
-# Use the loggers
-api_logger.info("API request received")        # → logs/api.log
-db_logger.info("Database query executed")     # → logs/database.log
-service_logger.info("Service operation done") # → logs/services.log
+performance_logger.info("Performance data")   # → logs/performance.json
+monitoring_logger.info("Resource snapshot")   # → logs/monitoring.json
 ```
 
-## Advanced Configuration
+## Advanced Configuration — Decorated Functions
 
 Configure performance monitoring with custom parameters:
 
@@ -133,12 +140,11 @@ def slow_database_query(user_id, limit=10):
 Monitor specific code blocks:
 
 ```python
-from sherlock_ai.performance import PerformanceTimer
+from sherlock_ai import PerformanceTimer
 
 with PerformanceTimer("database_operation"):
-    # Your code block here
     result = database.query("SELECT * FROM users")
-    
+
 # Logs: PERFORMANCE | database_operation | SUCCESS | 0.234s
 ```
 
@@ -155,20 +161,21 @@ async def async_api_call():
         response = await client.get("https://api.example.com")
         return response.json()
 
-# Works automatically with async functions
 result = await async_api_call()
 ```
 
 ## Default Log Files
 
-When you call `sherlock_ai()`, it automatically creates a `logs/` directory with these files:
+When you call `SherlockAI().setup()`, it automatically creates a `logs/` directory with these files (`.json` by default, `.log` when `log_format_type="log"`):
 
-- `app.log` - All INFO+ level logs from root logger
-- `errors.log` - Only ERROR+ level logs from any logger
-- `api.log` - Logs from `app.api` logger
-- `database.log` - Logs from `app.core.dbConnection` logger
-- `services.log` - Logs from `app.services` logger
-- `performance.log` - Performance monitoring logs
+| File | Purpose | Logger |
+|------|---------|--------|
+| `app.json` | All INFO+ logs from the root logger | Root logger |
+| `errors.json` | ERROR+ logs from any logger | All loggers |
+| `performance.json` | Performance monitoring | `PerformanceLogger` |
+| `monitoring.json` | Memory and resource monitoring | `MonitoringLogger` |
+| `error_insights.json` | AI-generated error analysis | `ErrorInsightsLogger` |
+| `performance_insights.json` | AI-generated performance analysis | `PerformanceInsightsLogger` |
 
 ## What's Next?
 

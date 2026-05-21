@@ -2,27 +2,25 @@
 
 Complete API documentation for Sherlock AI.
 
-## Core Functions
+## Initialization
 
-### sherlock_ai()
+### SherlockAI
 
-Initialize logging configuration.
+Main class for initialising logging.
 
 ```python
-from sherlock_ai import sherlock_ai, LoggingConfig, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig
 
-# Default configuration
-sherlock_ai()
+# Default configuration (JSON format)
+SherlockAI().setup()
 
-# With preset
-sherlock_ai(LoggingPresets.production())
+# Custom configuration
+config = LoggingConfig(log_format_type="log", console_level="DEBUG")
+logger_manager = SherlockAI(config)
+logger_manager.setup()
 
-# With format type
-sherlock_ai(format_type="json")
-
-# With custom config
-config = LoggingConfig(...)
-sherlock_ai(config)
+# Reconfigure at runtime
+logger_manager.reconfigure(LoggingConfig(console_level="WARNING"))
 ```
 
 ### get_logger()
@@ -33,7 +31,7 @@ Get a logger instance.
 from sherlock_ai import get_logger, LoggerNames
 
 logger = get_logger(__name__)
-logger = get_logger(LoggerNames.API)
+logger = get_logger(LoggerNames.PERFORMANCE)
 ```
 
 ## Decorators
@@ -64,7 +62,6 @@ logger = get_logger(LoggerNames.API)
 - `LoggingConfig` - Main configuration class
 - `LogFileConfig` - Log file configuration
 - `LoggerConfig` - Logger configuration
-- `LoggingPresets` - Pre-configured setups
 
 ## Utilities
 
@@ -75,4 +72,3 @@ logger = get_logger(LoggerNames.API)
 - `list_available_loggers()` - List available loggers
 - `get_logging_stats()` - Get logging statistics
 - `get_current_config()` - Get current configuration
-

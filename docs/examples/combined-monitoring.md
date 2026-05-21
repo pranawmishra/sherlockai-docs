@@ -5,10 +5,10 @@ Use multiple Sherlock AI features together for comprehensive monitoring.
 ## Complete Monitoring Stack
 
 ```python
-from sherlock_ai import sherlock_ai, log_performance, monitor_memory, monitor_resources, hardcoded_value_detector
+from sherlock_ai import SherlockAI, log_performance, monitor_memory, monitor_resources, hardcoded_value_detector
 from sherlock_ai.monitoring import sherlock_error_handler
 
-sherlock_ai()
+SherlockAI().setup()
 
 @log_performance
 @monitor_memory(trace_malloc=True)
@@ -59,10 +59,10 @@ def process_data(data: dict):
 ## Data Pipeline Example
 
 ```python
-from sherlock_ai import sherlock_ai, log_performance, monitor_memory, monitor_resources
+from sherlock_ai import SherlockAI, log_performance, monitor_memory, monitor_resources
 from sherlock_ai.monitoring import sherlock_error_handler
 
-sherlock_ai()
+SherlockAI().setup()
 
 @log_performance
 @monitor_memory

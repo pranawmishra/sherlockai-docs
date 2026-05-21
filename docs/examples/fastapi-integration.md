@@ -57,9 +57,9 @@ if __name__ == "__main__":
 
 ```python
 from fastapi import FastAPI
-from sherlock_ai import sherlock_ai, get_logger, log_performance, monitor_memory
+from sherlock_ai import SherlockAI, get_logger, log_performance, monitor_memory
 
-sherlock_ai()
+SherlockAI().setup()
 logger = get_logger(__name__)
 
 app = FastAPI()
@@ -78,19 +78,25 @@ def monitored_endpoint():
 # app/main.py
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
-from sherlock_ai import SherlockAI, LoggingConfig, LoggingPresets, get_logger, set_request_id
+from sherlock_ai import SherlockAI, LoggingConfig, get_logger, set_request_id
 import os
 
 # Environment-based configuration
 env = os.getenv("ENVIRONMENT", "development")
 
 if env == "production":
-    config = LoggingPresets.production()
-    config.auto_instrument = True
-    config.log_format_type = "json"
+    config = LoggingConfig(
+        log_format_type="json",
+        console_level="WARNING",
+        auto_instrument=True
+    )
 else:
-    config = LoggingPresets.development()
-    config.auto_instrument = True
+    config = LoggingConfig(
+        log_format_type="log",
+        console_level="DEBUG",
+        root_level="DEBUG",
+        auto_instrument=True
+    )
 
 logging_manager = SherlockAI(config=config)
 logging_manager.setup()

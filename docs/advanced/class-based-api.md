@@ -40,26 +40,18 @@ logger_manager.setup()
 ## Runtime Reconfiguration
 
 ```python
-from sherlock_ai import SherlockAI, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig
 
 # Initial setup
 logger_manager = SherlockAI()
 logger_manager.setup()
 
 # Later, change configuration without restart
-logger_manager.reconfigure(LoggingPresets.production())
-```
-
-## Context Manager
-
-```python
-from sherlock_ai import SherlockAI, LoggingConfig
-
-# Temporary configuration
-with SherlockAI(LoggingConfig(logs_dir="temp_logs")) as temp_logger:
-    # Use temporary logging configuration
-    logger.info("This uses temporary config")
-# Automatically cleaned up
+production_config = LoggingConfig(
+    log_format_type="json",
+    console_level="WARNING"
+)
+logger_manager.reconfigure(production_config)
 ```
 
 ## Singleton Pattern

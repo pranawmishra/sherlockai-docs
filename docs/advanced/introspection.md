@@ -5,9 +5,9 @@ Query current logging configuration and statistics at runtime.
 ## Get Logging Statistics
 
 ```python
-from sherlock_ai import sherlock_ai, get_logging_stats
+from sherlock_ai import SherlockAI, get_logging_stats
 
-sherlock_ai()
+SherlockAI().setup()
 
 stats = get_logging_stats()
 print(f"Configured: {stats['is_configured']}")
@@ -18,9 +18,9 @@ print(f"Log directory: {stats['logs_dir']}")
 ## Get Current Configuration
 
 ```python
-from sherlock_ai import sherlock_ai, get_current_config
+from sherlock_ai import SherlockAI, get_current_config
 
-sherlock_ai()
+SherlockAI().setup()
 
 config = get_current_config()
 if config:

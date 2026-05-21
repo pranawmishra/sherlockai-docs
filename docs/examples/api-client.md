@@ -53,11 +53,11 @@ api_client.post_error_insights(error_data)
 
 ```python
 import os
-from sherlock_ai import sherlock_ai, log_performance
+from sherlock_ai import SherlockAI, log_performance
 from sherlock_ai.monitoring import sherlock_error_handler, sherlock_performance_insights
 
 os.environ["SHERLOCK_AI_API_KEY"] = "your-api-key"
-sherlock_ai()
+SherlockAI().setup()
 
 @log_performance
 @sherlock_error_handler

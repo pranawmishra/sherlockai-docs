@@ -13,11 +13,11 @@ SherlockAI(config: Optional[LoggingConfig] = None)
 
 **Methods:**
 
-### setup(format_type="log")
-Set up logging configuration.
+### setup()
+Set up logging configuration. Format type is controlled by `LoggingConfig.log_format_type` (default: `"json"`).
 ```python
 logger_manager = SherlockAI()
-logger_manager.setup("json")
+logger_manager.setup()
 ```
 
 ### reconfigure(new_config)

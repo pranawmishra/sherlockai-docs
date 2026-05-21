@@ -4,35 +4,44 @@ Sherlock AI supports structured JSON logging for better log parsing, analysis, a
 
 ## Enabling JSON Format
 
-### Function-Based API
+JSON is the **default format** — `LoggingConfig` uses `log_format_type="json"` out of the box.
 
-```python
-from sherlock_ai import sherlock_ai
-
-# Enable JSON format (creates .json files)
-sherlock_ai(format_type="json")
-```
-
-### Class-Based API
+### Default Setup (JSON)
 
 ```python
 from sherlock_ai import SherlockAI
 
+# JSON is the default — creates .json log files
 logger_manager = SherlockAI()
-logger_manager.setup("json")  # Creates app.json, errors.json, etc.
+logger_manager.setup()
 ```
 
-### Configuration Object
+### Explicit JSON Configuration
 
 ```python
-from sherlock_ai import LoggingConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig
 
 config = LoggingConfig(
-    log_format_type="json",  # or "log" for standard format
+    log_format_type="json",   # explicit (same as default)
     logs_dir="json_logs"
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
+```
+
+### Standard Text Format
+
+To use human-readable `.log` files instead:
+
+```python
+from sherlock_ai import SherlockAI, LoggingConfig
+
+config = LoggingConfig(
+    log_format_type="log",    # human-readable text format
+    logs_dir="logs"
+)
+
+SherlockAI(config).setup()
 ```
 
 ## Log Output Comparison
@@ -57,36 +66,25 @@ sherlock_ai(config)
 Each JSON log entry contains:
 
 ```json
-{
-  "timestamp": "2025-07-15 20:51:19",
-  "level": "INFO",
-  "logger": "ApiLogger",
-  "message": "Request started",
-  "request_id": "aa580b62",
-  "module": "myapp",
-  "function": "api_call",
-  "line": 42,
-  "thread": 13672,
-  "thread_name": "MainThread",
-  "process": 22008
-}
+{"timestamp":"2025-07-15 20:51:19","level":"INFO","logger":"ApiLogger","message":"Request started","request_id":"aa580b62"}
+```
+
+When an exception is attached, an `exception` object is added:
+
+```json
+{"timestamp":"2025-07-15 20:51:19","level":"ERROR","logger":"root","message":"Something failed","request_id":"aa580b62","exception":{"type":"ValueError","message":"bad input","traceback":"Traceback (most recent call last):\n  ..."}}
 ```
 
 ### Fields
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `timestamp` | string | ISO format timestamp |
+| `timestamp` | string | Formatted timestamp (`date_format`) |
 | `level` | string | Log level (INFO, DEBUG, WARNING, ERROR, CRITICAL) |
 | `logger` | string | Logger name |
 | `message` | string | Log message content |
-| `request_id` | string | Request ID (if set) |
-| `module` | string | Module name where log originated |
-| `function` | string | Function name where log originated |
-| `line` | integer | Line number in source file |
-| `thread` | integer | Thread ID |
-| `thread_name` | string | Thread name |
-| `process` | integer | Process ID |
+| `request_id` | string | Request ID set via `set_request_id()`, or `"-"` if unset |
+| `exception` | object | Present only when an exception is logged — contains `type`, `message`, and `traceback` |
 
 ## Reading JSON Logs
 
@@ -259,20 +257,23 @@ with open('logs/app.json', 'r') as f:
 ### Production with JSON
 
 ```python
-from sherlock_ai import LoggingConfig, LogFileConfig, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig, LogFileConfig
 
 config = LoggingConfig(
     logs_dir="production_logs",
-    log_format_type="json",  # JSON format
+    log_format_type="json",
     console_level="INFO",
     log_files={
         "app": LogFileConfig("application", max_bytes=100*1024*1024),
         "errors": LogFileConfig("errors", level="ERROR", backup_count=20),
-        "performance": LogFileConfig("performance", backup_count=15)
+        "performance": LogFileConfig("performance", backup_count=15),
+        "monitoring": LogFileConfig("monitoring"),
+        "error_insights": LogFileConfig("error_insights"),
+        "performance_insights": LogFileConfig("performance_insights"),
     }
 )
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 
 # Creates:
 # production_logs/application.json
@@ -283,13 +284,15 @@ sherlock_ai(config)
 ### Development with JSON
 
 ```python
-from sherlock_ai import LoggingPresets, sherlock_ai
+from sherlock_ai import SherlockAI, LoggingConfig
 
-# Use development preset with JSON format
-config = LoggingPresets.development()
-config.log_format_type = "json"
+config = LoggingConfig(
+    log_format_type="json",
+    console_level="DEBUG",
+    root_level="DEBUG"
+)
 
-sherlock_ai(config)
+SherlockAI(config).setup()
 ```
 
 ## Parsing Performance Logs

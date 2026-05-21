@@ -230,18 +230,24 @@ def monitored_endpoint():
 ```python
 # main.py
 from fastapi import FastAPI
-from sherlock_ai import SherlockAI, LoggingConfig, LoggingPresets
+from sherlock_ai import SherlockAI, LoggingConfig
 import os
 
-# Use environment-specific presets
 env = os.getenv("ENVIRONMENT", "development")
 
 if env == "production":
-    config = LoggingPresets.production()
-    config.auto_instrument = True
+    config = LoggingConfig(
+        log_format_type="json",
+        console_level="WARNING",
+        auto_instrument=True
+    )
 else:
-    config = LoggingPresets.development()
-    config.auto_instrument = True
+    config = LoggingConfig(
+        log_format_type="log",
+        console_level="DEBUG",
+        root_level="DEBUG",
+        auto_instrument=True
+    )
 
 logging_manager = SherlockAI(config=config)
 logging_manager.setup()
@@ -420,7 +426,7 @@ If auto-instrumentation doesn't work:
 
 If you see duplicate log entries:
 
-1. Make sure you're not calling `sherlock_ai()` multiple times
+1. Make sure you're not calling `SherlockAI().setup()` multiple times
 2. Don't mix auto-instrumentation with manual decorators
 3. Check for multiple initialization in dev reload
 

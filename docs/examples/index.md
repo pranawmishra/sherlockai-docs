@@ -34,9 +34,9 @@ Use multiple decorators together for comprehensive monitoring.
 ### Basic Monitoring
 
 ```python
-from sherlock_ai import sherlock_ai, get_logger, log_performance
+from sherlock_ai import SherlockAI, get_logger, log_performance
 
-sherlock_ai()
+SherlockAI().setup()
 logger = get_logger(__name__)
 
 @log_performance
