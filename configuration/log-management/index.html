@@ -2945,7 +2945,7 @@
 <h2 id="file-rotation">File Rotation</h2>
 <h3 id="automatic-rotation">Automatic Rotation</h3>
 <p>Log files automatically rotate when they reach the configured size:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggingConfig</span><span class="p">,</span> <span class="n">LogFileConfig</span><span class="p">,</span> <span class="n">sherlock_ai</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">SherlockAI</span><span class="p">,</span> <span class="n">LoggingConfig</span><span class="p">,</span> <span class="n">LogFileConfig</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">(</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">log_files</span><span class="o">=</span><span class="p">{</span>
@@ -2957,7 +2957,7 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="p">}</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">)</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">sherlock_ai</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">SherlockAI</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </span></code></pre></div>
 <p><strong>Result:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>logs/
@@ -3002,21 +3002,21 @@
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="runtime-configuration">Runtime Configuration</h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">LoggingConfig</span><span class="p">,</span> <span class="n">sherlock_ai</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">SherlockAI</span><span class="p">,</span> <span class="n">LoggingConfig</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Start with default configuration</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">()</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Disable specific log files</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;api&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;monitoring&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;performance_insights&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Enable errors with higher retention</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;errors&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">True</span>
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;errors&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">backup_count</span> <span class="o">=</span> <span class="mi">15</span>
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># Apply the modified configuration</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">sherlock_ai</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">SherlockAI</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </span></code></pre></div>
 <h2 id="log-levels">Log Levels</h2>
 <h3 id="per-file-log-levels">Per-File Log Levels</h3>
@@ -3205,9 +3205,9 @@
 <h3 id="4-disable-unused-logs">4. Disable Unused Logs</h3>
 <p>Save disk space by disabling unnecessary log files:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">()</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;api&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;monitoring&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;performance_insights&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">config</span><span class="o">.</span><span class="n">log_files</span><span class="p">[</span><span class="s2">&quot;error_insights&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="kc">False</span>
 </span></code></pre></div>
 <h3 id="5-use-monitoring">5. Use Monitoring</h3>
 <p>Monitor log file sizes and rotation:</p>
@@ -3248,7 +3248,7 @@
 </ol>
 <h2 id="next-steps">Next Steps</h2>
 <ul>
-<li><a href="../presets/">Configuration Presets</a> - Pre-configured setups</li>
+<li><a href="../presets/">Configuration Patterns</a> - Common configuration patterns</li>
 <li><a href="../custom-config/">Custom Configuration</a> - Build custom configs</li>
 <li><a href="../json-logging/">JSON Logging</a> - Use JSON format</li>
 <li><a href="../../guides/production-deployment/">Production Deployment</a> - Deploy to production</li>

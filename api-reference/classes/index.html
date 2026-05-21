@@ -1951,10 +1951,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setupformat_typelog" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setup(format_type="log")
+        setup()
       
     </span>
   </a>
@@ -2304,10 +2304,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setupformat_typelog" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        setup(format_type="log")
+        setup()
       
     </span>
   </a>
@@ -2592,10 +2592,10 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">SherlockAI</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LoggingConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </span></code></pre></div></p>
 <p><strong>Methods:</strong></p>
-<h3 id="setupformat_typelog">setup(format_type="log")</h3>
-<p>Set up logging configuration.
+<h3 id="setup">setup()</h3>
+<p>Set up logging configuration. Format type is controlled by <code>LoggingConfig.log_format_type</code> (default: <code>"json"</code>).
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">logger_manager</span> <span class="o">=</span> <span class="n">SherlockAI</span><span class="p">()</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">logger_manager</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">logger_manager</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </span></code></pre></div></p>
 <h3 id="reconfigurenew_config">reconfigure(new_config)</h3>
 <p>Change configuration without restart.

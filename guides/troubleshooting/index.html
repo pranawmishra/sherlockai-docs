@@ -2675,7 +2675,7 @@
 <h3 id="duplicate-logs">Duplicate Logs</h3>
 <p><strong>Problem:</strong> Seeing duplicate log entries</p>
 <p><strong>Solution:</strong>
-- Don't call <code>sherlock_ai()</code> multiple times
+- Don't call <code>SherlockAI().setup()</code> multiple times
 - In FastAPI with reload, initialize only once</p>
 <h3 id="auto-instrumentation-not-working">Auto-Instrumentation Not Working</h3>
 <p><strong>Problem:</strong> FastAPI routes not being monitored</p>

@@ -2017,22 +2017,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-functions" class="md-nav__link">
+  <a href="#initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core Functions
+        Initialization
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Functions">
+    <nav class="md-nav" aria-label="Initialization">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sherlock_ai" class="md-nav__link">
+  <a href="#sherlockai" class="md-nav__link">
     <span class="md-ellipsis">
       
-        sherlock_ai()
+        SherlockAI
       
     </span>
   </a>
@@ -2166,30 +2166,28 @@
 
 <h1 id="api-reference">API Reference</h1>
 <p>Complete API documentation for Sherlock AI.</p>
-<h2 id="core-functions">Core Functions</h2>
-<h3 id="sherlock_ai">sherlock_ai()</h3>
-<p>Initialize logging configuration.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">sherlock_ai</span><span class="p">,</span> <span class="n">LoggingConfig</span><span class="p">,</span> <span class="n">LoggingPresets</span>
+<h2 id="initialization">Initialization</h2>
+<h3 id="sherlockai">SherlockAI</h3>
+<p>Main class for initialising logging.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">SherlockAI</span><span class="p">,</span> <span class="n">LoggingConfig</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Default configuration</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">sherlock_ai</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Default configuration (JSON format)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">SherlockAI</span><span class="p">()</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># With preset</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">sherlock_ai</span><span class="p">(</span><span class="n">LoggingPresets</span><span class="o">.</span><span class="n">production</span><span class="p">())</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># With format type</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">sherlock_ai</span><span class="p">(</span><span class="n">format_type</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># With custom config</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">sherlock_ai</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Custom configuration</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">config</span> <span class="o">=</span> <span class="n">LoggingConfig</span><span class="p">(</span><span class="n">log_format_type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">console_level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">logger_manager</span> <span class="o">=</span> <span class="n">SherlockAI</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">logger_manager</span><span class="o">.</span><span class="n">setup</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Reconfigure at runtime</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">logger_manager</span><span class="o">.</span><span class="n">reconfigure</span><span class="p">(</span><span class="n">LoggingConfig</span><span class="p">(</span><span class="n">console_level</span><span class="o">=</span><span class="s2">&quot;WARNING&quot;</span><span class="p">))</span>
 </span></code></pre></div>
 <h3 id="get_logger">get_logger()</h3>
 <p>Get a logger instance.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sherlock_ai</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span><span class="p">,</span> <span class="n">LoggerNames</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="n">LoggerNames</span><span class="o">.</span><span class="n">API</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="n">LoggerNames</span><span class="o">.</span><span class="n">PERFORMANCE</span><span class="p">)</span>
 </span></code></pre></div>
 <h2 id="decorators">Decorators</h2>
 <p><a href="decorators/">View Decorators Reference →</a></p>
@@ -2216,7 +2214,6 @@
 <li><code>LoggingConfig</code> - Main configuration class</li>
 <li><code>LogFileConfig</code> - Log file configuration</li>
 <li><code>LoggerConfig</code> - Logger configuration</li>
-<li><code>LoggingPresets</code> - Pre-configured setups</li>
 </ul>
 <h2 id="utilities">Utilities</h2>
 <p><a href="utilities/">View Utilities Reference →</a></p>
